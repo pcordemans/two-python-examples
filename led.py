@@ -1,19 +1,19 @@
 class Led:
     def __init__(self, pin):
-        self.pinNumber = pin
-        self.isOn = False
+        self.__pinNumber = pin
+        self.__isOn = False
     
     def on(self):
-        self.isOn = True
+        self.__isOn = True
     
     def off(self):
-        self.isOn = False
+        self.__isOn = False
     
     def get_state(self):
-        return self.isOn
+        return self.__isOn
     
     def toggle(self):
-        self.isOn = not self.get_state()
+        self.__isOn = not self.get_state()
 
 myLed = Led(1)
 print(myLed.get_state())
@@ -25,3 +25,6 @@ myLed.toggle()
 print(myLed.get_state())
 myLed.toggle()
 print(myLed.get_state())
+
+# name mangling is used to obfuscate members which start with a double underscore
+print(myLed._Led__isOn)
