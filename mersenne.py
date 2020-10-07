@@ -11,17 +11,8 @@ def is_prime(number):
         if number % divisor == 0:
             return False
 
-    return True
-    
-mps_found = 0
-number = 2
+    return True    
 
-print("Welcome to our Mersenne Prime finder script")
-numberOfMPs = int(input("Please enter the number of Mersenne Primes to find:"))
-
-while mps_found < numberOfMPs:
-    mp = potential_MP(number)
-    if(is_prime(mp)):
-        mps_found += 1
-        print(mp)
-    number += 1
+# Returns True if number is the exponent of a Mersenne Prime
+def is_mp(number):
+    return is_prime(potential_MP(number))
